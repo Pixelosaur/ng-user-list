@@ -1,0 +1,7 @@
+<div class="card">
+    <img [src]="user?.picture?.medium" class="card-img-top" [alt]="user?.name?.first" />
+    <div class="card-body">
+        <h5 class="card-title">{{ user?.name?.first }}</h5>
+        <p class="card-text">{{ user?.email }} - {{ user?.location?.country }} - {{ user?.phone }}</p>
+    </div>
+</div>

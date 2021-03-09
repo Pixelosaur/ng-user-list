@@ -16,12 +16,16 @@ export class UsersComponent implements OnInit {
     error: string | null = null;
 
     pageTitle: string = 'My Clerks';
+    isLoading: boolean = true;
 
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
         this.usersService.getRandomUsers().subscribe(
-            (data: ApiResponse) => (this.users = data.results),
+            (data: ApiResponse) => {
+                this.users = data.results;
+                this.isLoading = false;
+            },
             (error) => (this.error = error),
         );
     }

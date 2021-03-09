@@ -1,2 +1,12 @@
-<app-page-title [title]="pageTitle"></app-page-title>
-<p>users works!</p>
+<div class="px-4">
+    <div *ngIf="isLoading">
+        <app-loader></app-loader>
+    </div>
+
+    <div *ngIf="!isLoading">
+        <app-page-title [title]="pageTitle"></app-page-title>
+        <div *ngFor="let user of users">
+            <app-user-card [user]="user"></app-user-card>
+        </div>
+    </div>
+</div>
