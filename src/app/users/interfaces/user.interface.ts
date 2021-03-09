@@ -9,10 +9,14 @@ type Name = {
     last: string;
 };
 
+type Picture = {
+    medium: string;
+};
+
 export interface User {
     email: string;
     location: Location;
     name: Name;
     phone: string;
-    picture: string;
+    picture: Picture;
 }
