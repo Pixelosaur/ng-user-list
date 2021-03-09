@@ -1,0 +1,75 @@
+.loader {
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    margin: auto;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        top: calc(50% - 0.75rem);
+        left: calc(50% - 0.75rem);
+        animation: 3s linear infinite;
+    }
+
+    &::before {
+        background: #2D2F32;
+        animation-name: droplets;
+    }
+
+    &::after {
+        border: 1px solid #2D2F32;
+        opacity: 0;
+        animation-name: ripples;
+    }
+    &-item {
+        display: flex;
+    }
+}
+
+@keyframes droplets {
+    0%,
+    15% {
+        opacity: 1;
+    }
+    15% {
+        transform: scale(0.5);
+    }
+    60% {
+        transform: scale(4);
+    }
+    60%,
+    90% {
+        opacity: 0;
+    }
+    90% {
+        transform: scale(3);
+    }
+    95%,
+    100% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes ripples {
+    0%,
+    30% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    60% {
+        opacity: 0.3;
+    }
+    90% {
+        transform: scale(3);
+    }
+    100% {
+        opacity: 0;
+    }
+}
