@@ -5,6 +5,9 @@
 
     <div *ngIf="!isLoading">
         <app-page-title [title]="pageTitle"></app-page-title>
+        <div *ngIf="alert">
+            <app-alert [alert]="alert"></app-alert>
+        </div>
         <div *ngFor="let user of users">
             <app-user-card [user]="user"></app-user-card>
         </div>

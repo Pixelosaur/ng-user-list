@@ -5,6 +5,7 @@ import { UsersService } from './users.service';
 // Interfaces
 import { User } from './interfaces/user.interface';
 import { ApiResponse } from './interfaces/api-response.interface';
+import { Alert } from '../shared/components/alert/alert.interface';
 
 @Component({
     selector: 'app-users',
@@ -13,20 +14,29 @@ import { ApiResponse } from './interfaces/api-response.interface';
 })
 export class UsersComponent implements OnInit {
     users: User[] = [];
-    error: string | null = null;
 
     pageTitle: string = 'My Clerks';
     isLoading: boolean = true;
 
+    alert!: Alert | null;
+
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
+        // reset alert
+        this.alert = null;
+
         this.usersService.getRandomUsers().subscribe(
             (data: ApiResponse) => {
                 this.users = data.results;
                 this.isLoading = false;
             },
-            (error) => (this.error = error),
+            (error: any) => {
+                this.alert = {
+                    message: error,
+                    type: 'Error',
+                };
+            },
         );
     }
 }

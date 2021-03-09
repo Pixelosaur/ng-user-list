@@ -1,0 +1,9 @@
+<div
+    class="alert"
+    [class.alert-danger]="alert.type === 'Error'"
+    [class.alert-info]="alert.type === 'Info'"
+    [class.alert-success]="alert.type === 'Success'"
+    [class.alert-warning]="alert.type === 'Warning'"
+>
+    {{ alert.message }}
+</div>
