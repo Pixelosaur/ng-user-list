@@ -15,6 +15,8 @@ export class UsersComponent implements OnInit {
     users: User[] = [];
     error: string | null = null;
 
+    pageTitle: string = 'My Clerks';
+
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
