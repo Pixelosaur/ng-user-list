@@ -47,4 +47,8 @@ export class UsersComponent implements OnInit {
             },
         );
     }
+
+    onPageChange(pager: string): void {
+        console.log(pager);
+    }
 }
