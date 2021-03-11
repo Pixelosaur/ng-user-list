@@ -16,9 +16,10 @@ export class UsersComponent implements OnInit {
     users: User[] = [];
 
     pageTitle: string = 'My Clerks';
-    isLoading: boolean = true;
+    isContentLoading!: boolean;
 
-    alert!: Alert | null;
+    alert!: Alert;
+    isAlertShowing!: boolean;
 
     constructor(private usersService: UsersService) {}
 

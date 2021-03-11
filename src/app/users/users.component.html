@@ -1,15 +1,19 @@
-<div class="px-4">
-    <div *ngIf="isLoading">
+<div class="px-4 px-md-0 px-lg-2 d-flex align-items-center justify-content-center users-container">
+    <!-- Page Loader -->
+    <div *ngIf="isContentLoading">
         <app-loader></app-loader>
     </div>
-
-    <div *ngIf="!isLoading">
+    <!-- Main Page Content -->
+    <div *ngIf="!isContentLoading" class="py-5 w-100">
+        <!-- Page Title  -->
         <app-page-title [title]="pageTitle"></app-page-title>
-        <div *ngIf="alert">
-            <app-alert [alert]="alert"></app-alert>
-        </div>
-        <div *ngFor="let user of users">
-            <app-user-card [user]="user"></app-user-card>
+        <!-- Alert  -->
+        <app-alert [alert]="alert" *ngIf="isAlertShowing"> </app-alert>
+        <!-- User Cards -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5" *ngIf="!isAlertShowing">
+            <div class="col" *ngFor="let user of displayedUserCards">
+                <app-user-card [user]="user"></app-user-card>
+            </div>
         </div>
     </div>
 </div>
