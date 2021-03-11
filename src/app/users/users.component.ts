@@ -24,13 +24,20 @@ export class UsersComponent implements OnInit {
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
-        // reset alert
-        this.alert = null;
+        this.isContentLoading = true;
+        // hide alert
+        this.isAlertShowing = false;
 
+        this.getRandomUsers();
+    }
+
+    getRandomUsers(): void {
         this.usersService.getRandomUsers().subscribe(
             (data: ApiResponse) => {
                 this.users = data.results;
-                this.isLoading = false;
+
+                // reset the page loader
+                this.isContentLoading = false;
             },
             (error: any) => {
                 this.alert = {
