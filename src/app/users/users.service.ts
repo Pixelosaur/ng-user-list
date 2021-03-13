@@ -29,9 +29,13 @@ export class UsersService {
         return throwError(errorMessage);
     }
 
-    getRandomUsers(results: number = 10, page: number = 1): Observable<ApiResponse> {
+    getRandomUsers(
+        results: number = 51,
+        page: number = 1,
+        seed: string | null = null,
+    ): Observable<ApiResponse> {
         const includeParams: string = 'name,email,phone,location,picture';
-        const apiUrl: string = `${environment.apiUrl}?inc=${includeParams}&page=${page}&results=${results}`;
+        const apiUrl: string = `${environment.apiUrl}?inc=${includeParams}&seed=${seed}&page=${page}&results=${results}`;
 
         return this.http.get<ApiResponse>(apiUrl).pipe(
             map((response: ApiResponse) => response),
