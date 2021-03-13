@@ -1,0 +1,15 @@
+@import '../../../styles/utils/mixins';
+@import '../../../styles/utils/colors';
+
+$pager__button-text-hover-color: #{lighten($base-dark-color, 40)};
+
+.pager-container {
+    button {
+        @include shadow;
+        @include transition-all;
+
+        &:hover {
+            color: $pager__button-text-hover-color;
+        }
+    }
+}
