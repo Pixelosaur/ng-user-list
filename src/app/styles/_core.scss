@@ -2,6 +2,12 @@
 @import '../styles/utils/colors';
 @import '../styles/utils/mixins';
 
+$body-background-color: $base-light-gray-color;
+$body__text-color: $base-dark-color;
+
 body {
+    font-size: 1rem;
     font-family: $body-font;
+    color: $body__text-color;
+    background-color: $body-background-color;
 }
