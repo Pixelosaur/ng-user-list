@@ -1,15 +1,22 @@
 @import '../../../styles/utils/mixins';
 @import '../../../styles/utils/colors';
 
-$pager__button-text-hover-color: #{lighten($base-dark-color, 40)};
+$pager__button-disabled-text-color: #{lighten($base-dark-color, 40)};
+$pager__button-text-color: $base-purple-color;
+$pager__button-text-hover-color: #{lighten($base-purple-color, 10)};
 
 .pager-container {
     button {
+        color: $pager__button-text-color;
         @include shadow;
         @include transition-all;
 
         &:hover {
             color: $pager__button-text-hover-color;
+        }
+        &:disabled {
+            opacity: 1;
+            color: $pager__button-disabled-text-color;
         }
     }
 }
