@@ -67,6 +67,20 @@ export class UsersComponent implements OnInit {
     }
 
     onPageChange(pager: string): void {
-        console.log(pager);
+        if (pager === 'next') {
+            // Increase the index by 3 which is the number of displayed cards
+            this.currentDisplayedCardsIndex += this.numberOfDisplayedCards;
+            // Update the displayed cards array
+            this.displayedUserCards = this.setDisplayedUserCards(this.users);
+        } else if (pager === 'previous' && this.currentDisplayedCardsIndex !== 0) {
+            // Decrease the index by 3
+            this.currentDisplayedCardsIndex -= this.numberOfDisplayedCards;
+            // Update the displayed cards array
+            this.displayedUserCards = this.setDisplayedUserCards(this.users);
+        }
+
+        this.isNextButtonDisabled =
+            this.currentDisplayedCardsIndex >= this.users.length - this.numberOfDisplayedCards;
+        this.isPrevButtonDisabled = this.currentDisplayedCardsIndex === 0;
     }
 }
