@@ -1,8 +1,16 @@
 <div class="mb-4 d-flex justify-content-end pager-container">
-    <button class="btn bg-white rounded-3 me-3" (click)="onPageChange('previous')">
+    <button
+        class="btn bg-white rounded-3 me-3"
+        (click)="onPageChange('previous')"
+        [disabled]="isPrevButtonDisabled"
+    >
         <span class="fas fa-chevron-left"></span>
     </button>
-    <button class="btn bg-white rounded-3" (click)="onPageChange('next')">
+    <button
+        class="btn bg-white rounded-3"
+        (click)="onPageChange('next')"
+        [disabled]="isNextButtonDisabled"
+    >
         <span class="fas fa-chevron-right"></span>
     </button>
 </div>

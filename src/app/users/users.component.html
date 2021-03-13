@@ -9,9 +9,12 @@
         <app-page-title [title]="pageTitle"></app-page-title>
         <!-- Alert  -->
         <app-alert [alert]="alert" *ngIf="isAlertShowing"> </app-alert>
-        <div class="mb-4 d-flex justify-content-end">
-          <app-pager (page)="onPageChange($event)"></app-pager>
-        </div>
+        <!-- Next - Previous buttons -->
+        <app-pager
+            (page)="onPageChange($event)"
+            [isNextButtonDisabled]="isNextButtonDisabled"
+            [isPrevButtonDisabled]="isPrevButtonDisabled"
+        ></app-pager>
         <!-- User Cards -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5" *ngIf="!isAlertShowing">
             <div class="col" *ngFor="let user of displayedUserCards">

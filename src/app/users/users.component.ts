@@ -21,8 +21,11 @@ export class UsersComponent implements OnInit {
     numberOfDisplayedCards: number = 3;
 
     pageTitle: string = 'My Clerks';
-    isContentLoading!: boolean;
 
+    isContentLoading: boolean = true;
+    isNextButtonDisabled: boolean = false;
+    isPrevButtonDisabled: boolean = true;
+    // Alert
     alert!: Alert;
     isAlertShowing!: boolean;
 

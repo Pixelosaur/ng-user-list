@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
     selector: 'app-pager',
@@ -7,9 +7,11 @@ import { ChangeDetectionStrategy, Component, Output, EventEmitter } from '@angul
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PagerComponent {
+    @Input() isNextButtonDisabled!: boolean;
+    @Input() isPrevButtonDisabled!: boolean;
     @Output() page: EventEmitter<string> = new EventEmitter<string>();
 
     onPageChange(pager: string): void {
-      this.page.emit(pager);
+        this.page.emit(pager);
     }
 }
