@@ -13,7 +13,12 @@ import { Alert } from '../shared/components/alert/alert.interface';
     styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
+    // Full list of users
     users: User[] = [];
+    // Displayed user cards
+    displayedUserCards: User[] = [];
+    currentDisplayedCardsIndex: number = 0;
+    numberOfDisplayedCards: number = 3;
 
     pageTitle: string = 'My Clerks';
     isContentLoading!: boolean;
@@ -24,7 +29,6 @@ export class UsersComponent implements OnInit {
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
-        this.isContentLoading = true;
         // hide alert
         this.isAlertShowing = false;
 
@@ -34,7 +38,10 @@ export class UsersComponent implements OnInit {
     getRandomUsers(): void {
         this.usersService.getRandomUsers().subscribe(
             (data: ApiResponse) => {
+                this.isContentLoading = true;
+
                 this.users = data.results;
+                this.displayedUserCards = this.setDisplayedUserCards(this.users);
 
                 // reset the page loader
                 this.isContentLoading = false;
@@ -45,6 +52,14 @@ export class UsersComponent implements OnInit {
                     type: 'Error',
                 };
             },
+        );
+    }
+
+    /* return the selected portion of the users list */
+    setDisplayedUserCards(users: User[]): User[] {
+        return users.slice(
+            this.currentDisplayedCardsIndex,
+            this.numberOfDisplayedCards + this.currentDisplayedCardsIndex,
         );
     }
 
