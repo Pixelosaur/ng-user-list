@@ -1,4 +1,6 @@
 @import '../styles/utils/typography';
+@import '../styles/utils/colors';
+@import '../styles/utils/mixins';
 
 body {
     font-family: $body-font;
