@@ -1,11 +1,11 @@
-@mixin glass-fx($blur-amount: 4px, $transparency: 0.25, $with-outline: true) {
+@mixin glass-fx($blur-amount: 4px, $transparency: 0.25, $border-radius: 0.3rem, $with-outline: true) {
     background: rgba(255, 255, 255, $transparency);
     backdrop-filter: blur($blur-amount);
-    border-radius: 0.3rem;
+    border-radius: $border-radius;
     @include soft-shadow();
 
     @if $with-outline {
-        border-top: 1px solid rgba(255, 255, 255, 0.18);
+        border-top: 1px solid rgba(255, 255, 255, 0.40);
     } @else {
         border: none;
     }
