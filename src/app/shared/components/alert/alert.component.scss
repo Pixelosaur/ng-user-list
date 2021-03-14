@@ -1,0 +1,7 @@
+@import '../../../styles/utils/mixins';
+
+.alert {
+    max-width: 32rem;
+    margin: auto;
+    @include soft-shadow;
+}
