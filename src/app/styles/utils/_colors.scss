@@ -10,6 +10,10 @@ $base-light-gray-color: #F0F4F8;
 
 $base-dark-color: #2D3142;
 
-// Global Colors
-$primary-color: $base-purple-color;
-$secondary-color: $base-yellow-color;
+// Gradients
+$base-purple-rose-gradient: linear-gradient(62deg, $base-purple-color 0%, $base-rose-color 100%);
+$base-rose-yellow-gradient: linear-gradient(62deg, $base-rose-color 0%, $base-yellow-color 100%);
+$base-yellow-aquamarine-gradient: linear-gradient(62deg, $base-yellow-color 0%, $base-aquamarine-color 100%);
+$base-aquamarine-bright-blue-gradient: linear-gradient(62deg, $base-aquamarine-color 0%, $base-bright-blue-color 100%);
+$base-bright-blue-purple-gradient: linear-gradient(62deg, $base-bright-blue-color 0%, $base-purple-color 100%);
+$base-yellow-bright-blue-gradient: linear-gradient(62deg, $base-yellow-color 0%, $base-bright-blue-color 100%);
