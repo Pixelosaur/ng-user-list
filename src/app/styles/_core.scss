@@ -22,8 +22,12 @@ body {
     }
 
     .container {
+        @media screen and (min-width: 1600px) {
+            max-width: 1580px;
+        }
         .ng-select {
             width: 20rem;
+            margin-bottom: 5rem;
 
             .ng-select-container {
                 border-radius: 0.3rem;
