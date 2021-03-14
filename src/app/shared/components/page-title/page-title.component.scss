@@ -1,10 +1,20 @@
+@import '../../../styles/utils/mixins';
+@import '../../../styles/utils/colors';
+
+$divider-background-color: $base-purple-color;
+
+* {
+    @include transition-all;
+}
+
 .page-title {
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
 
     .divider {
         width: 4rem;
-        height: 2px;
+        height: 4px;
         margin: 0 auto;
-        background-color: slateblue;
+        border-radius: 0.3rem;
+        background-color: $divider-background-color;
     }
 }
