@@ -1,3 +1,17 @@
 .users-container {
-  min-height: 100vh;
+    min-height: 100vh;
+
+    .users {
+        overflow: hidden;
+
+        .user-item {
+            &:nth-child(even) {
+                padding: 3rem 0;
+
+                @media screen and (min-width: 992px) {
+                    padding: 0 3rem;
+                }
+            }
+        }
+    }
 }

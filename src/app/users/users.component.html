@@ -8,22 +8,26 @@
         <!-- Page Title  -->
         <app-page-title [title]="pageTitle"></app-page-title>
         <!-- Alert  -->
-        <app-alert [alert]="alert" *ngIf="isAlertShowing"> </app-alert>
+        <app-alert [alert]="alert" *ngIf="isAlertShowing"></app-alert>
         <!-- Select Theme  -->
-        <div class="d-flex justify-content-center mb-4">
+        <div class="d-flex justify-content-center mb-4" *ngIf="!isAlertShowing">
             <ng-select [searchable]="false" [clearable]="false" placeholder="Pick a theme">
                 <ng-option [value]="'option1'">Option 1</ng-option>
             </ng-select>
         </div>
         <!-- Next - Previous buttons -->
         <app-pager
+            *ngIf="!isAlertShowing"
             (page)="onPageChange($event)"
             [isNextButtonDisabled]="isNextButtonDisabled"
             [isPrevButtonDisabled]="isPrevButtonDisabled"
         ></app-pager>
         <!-- User Cards -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5" *ngIf="!isAlertShowing">
-            <div class="col" *ngFor="let user of displayedUserCards">
+        <div
+            class="d-flex flex-column flex-lg-row justify-content-between users"
+            *ngIf="!isAlertShowing"
+        >
+            <div class="user-item" *ngFor="let user of displayedUserCards">
                 <app-user-card [user]="user"></app-user-card>
             </div>
         </div>
