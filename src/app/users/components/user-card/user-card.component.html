@@ -1,7 +1,24 @@
-<div class="card">
-    <img [src]="user?.picture?.medium" class="card-img-top" [alt]="user?.name?.first" />
+<div class="card rounded-3 h-100">
+    <div class="card-img">
+        <img [src]="user?.picture?.medium" class="img-fluid mx-auto" [alt]="user?.name?.first" />
+    </div>
     <div class="card-body">
-        <h5 class="card-title">{{ user?.name?.first }}</h5>
-        <p class="card-text">{{ user?.email }} - {{ user?.location?.country }} - {{ user?.phone }}</p>
+        <h5 class="card-title">{{ user?.name?.first }} {{ user?.name?.last }}</h5>
+        <div class="card-content row">
+            <div class="col-12 col-xl-4 mb-4">
+                <span class="fas fa-envelope"></span>
+                <span class="d-block mt-3 text-break">{{ user?.email }}</span>
+            </div>
+            <div class="col-12 col-xl-4 mb-4">
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="d-block mt-3"
+                    >{{ user?.location?.country }}, {{ user?.location?.city }}</span
+                >
+            </div>
+            <div class="col-12 col-xl-4 mb-4">
+                <span class="fas fa-phone"></span>
+                <span class="d-block mt-3">{{ user?.phone }}</span>
+            </div>
+        </div>
     </div>
 </div>
