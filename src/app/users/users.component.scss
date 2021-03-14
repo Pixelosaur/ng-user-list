@@ -1,3 +1,19 @@
+@import '../styles/utils/mixins';
+@import '../styles/utils/colors';
+
+:host {
+    --color-main: #{$base-purple-color};
+    --color-accent: #{$base-rose-color};
+    --color-gradient: #{$base-purple-rose-gradient};
+
+    display: block;
+    text-align: center;
+}
+
+* {
+    @include transition-all;
+}
+
 .users-container {
     min-height: 100vh;
 

@@ -1,8 +1,8 @@
 @import '../../../styles/utils/mixins';
 @import '../../../styles/utils/colors';
 
-$card-background-color: $base-purple-color;
-$card-background-gradient: $base-purple-rose-gradient;
+$card-background-color: #{var(--color-main)};
+$card-background-gradient: #{var(--color-gradient)};
 
 * {
     @include transition-all;

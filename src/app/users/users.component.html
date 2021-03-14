@@ -1,4 +1,7 @@
-<div class="px-4 px-md-0 px-lg-2 d-flex align-items-center justify-content-center users-container">
+<div
+    class="px-4 px-md-0 px-lg-2 d-flex align-items-center justify-content-center users-container"
+    [appTheme]="currentTheme"
+>
     <!-- Page Loader -->
     <div *ngIf="isContentLoading">
         <app-loader></app-loader>
@@ -11,8 +14,15 @@
         <app-alert [alert]="alert" *ngIf="isAlertShowing"></app-alert>
         <!-- Select Theme  -->
         <div class="d-flex justify-content-center" *ngIf="!isAlertShowing">
-            <ng-select [searchable]="false" [clearable]="false" placeholder="Pick a theme">
-                <ng-option [value]="'option1'">Option 1</ng-option>
+            <ng-select
+                [searchable]="false"
+                [clearable]="false"
+                placeholder="Pick a theme"
+                (change)="setTheme($event)"
+            >
+                <ng-option *ngFor="let theme of themeOptions" [value]="theme">{{
+                    theme
+                }}</ng-option>
             </ng-select>
         </div>
         <!-- Next - Previous buttons -->

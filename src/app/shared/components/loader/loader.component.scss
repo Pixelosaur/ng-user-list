@@ -1,3 +1,7 @@
+@import '../../../styles/utils/colors';
+
+$loader-color: #{var(--color-main)};
+
 .loader {
     width: 5rem;
     height: 5rem;
@@ -17,12 +21,12 @@
     }
 
     &::before {
-        background: #2D2F32;
+        background: $loader-color;
         animation-name: droplets;
     }
 
     &::after {
-        border: 1px solid #2D2F32;
+        border: 1px solid $loader-color;
         opacity: 0;
         animation-name: ripples;
     }

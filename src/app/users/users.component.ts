@@ -2,10 +2,13 @@
 import { Component, OnInit } from '@angular/core';
 // Services
 import { UsersService } from './users.service';
+// Theme
+import { THEMES } from '../shared/theme';
 // Interfaces
 import { User } from './interfaces/user.interface';
 import { ApiResponse } from './interfaces/api-response.interface';
 import { Alert } from '../shared/components/alert/alert.interface';
+import { Theme } from '../shared/interfaces/theme.interface';
 
 @Component({
     selector: 'app-users',
@@ -28,13 +31,19 @@ export class UsersComponent implements OnInit {
     // Alert
     alert!: Alert;
     isAlertShowing!: boolean;
+    // Theme
+    currentTheme!: Theme;
+    themeOptions: string[] = [];
 
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
         // hide alert
         this.isAlertShowing = false;
-
+        // initialize theme
+        this.themeOptions = Object.keys(THEMES);
+        this.currentTheme = THEMES['purple-rose'];
+        // fetch users
         this.getRandomUsers();
     }
 
@@ -82,5 +91,9 @@ export class UsersComponent implements OnInit {
         this.isNextButtonDisabled =
             this.currentDisplayedCardsIndex >= this.users.length - this.numberOfDisplayedCards;
         this.isPrevButtonDisabled = this.currentDisplayedCardsIndex === 0;
+    }
+
+    setTheme(themeName: string) {
+        this.currentTheme = THEMES[themeName];
     }
 }

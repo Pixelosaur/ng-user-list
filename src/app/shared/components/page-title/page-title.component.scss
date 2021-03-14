@@ -1,7 +1,7 @@
 @import '../../../styles/utils/mixins';
 @import '../../../styles/utils/colors';
 
-$divider-background-color: $base-purple-color;
+$divider-background-color: #{var(--color-main)};
 
 * {
     @include transition-all;
