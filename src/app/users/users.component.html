@@ -14,16 +14,11 @@
         <app-alert [alert]="alert" *ngIf="isAlertShowing"></app-alert>
         <!-- Select Theme  -->
         <div class="d-flex justify-content-center" *ngIf="!isAlertShowing">
-            <ng-select
-                [searchable]="false"
-                [clearable]="false"
-                placeholder="Pick a theme"
-                (change)="setTheme($event)"
-            >
-                <ng-option *ngFor="let theme of themeOptions" [value]="theme">{{
-                    theme
-                }}</ng-option>
-            </ng-select>
+            <app-select
+                [options]="themeOptions"
+                [placeholder]="'Pick a theme'"
+                (selectedOption)="setTheme($event)"
+            ></app-select>
         </div>
         <!-- Next - Previous buttons -->
         <app-pager

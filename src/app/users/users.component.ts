@@ -9,6 +9,7 @@ import { User } from './interfaces/user.interface';
 import { ApiResponse } from './interfaces/api-response.interface';
 import { Alert } from '../shared/components/alert/alert.interface';
 import { Theme } from '../shared/interfaces/theme.interface';
+import { SelectOption } from '../shared/interfaces/select-option.interface';
 
 @Component({
     selector: 'app-users',
@@ -33,18 +34,28 @@ export class UsersComponent implements OnInit {
     isAlertShowing!: boolean;
     // Theme
     currentTheme!: Theme;
-    themeOptions: string[] = [];
+    themeOptions: SelectOption[] = [];
 
     constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
         // hide alert
         this.isAlertShowing = false;
-        // initialize theme
-        this.themeOptions = Object.keys(THEMES);
-        this.currentTheme = THEMES['purple-rose'];
+        // set default theme
+        this.initializeTheme();
         // fetch users
         this.getRandomUsers();
+    }
+
+    initializeTheme(): void {
+        let themeNames: string[] = Object.keys(THEMES);
+        this.themeOptions = themeNames.map((key: string, index: number) => {
+            return {
+                id: index,
+                name: key,
+            };
+        });
+        this.currentTheme = THEMES[themeNames[0]];
     }
 
     getRandomUsers(): void {
@@ -93,7 +104,7 @@ export class UsersComponent implements OnInit {
         this.isPrevButtonDisabled = this.currentDisplayedCardsIndex === 0;
     }
 
-    setTheme(themeName: string) {
-        this.currentTheme = THEMES[themeName];
+    setTheme(theme: SelectOption) {
+        this.currentTheme = THEMES[theme.name];
     }
 }

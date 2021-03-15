@@ -5,17 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
     declarations: [UsersComponent, UserCardComponent],
-    imports: [
-        CommonModule,
-        HttpClientModule,
-        SharedModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgSelectModule,
-    ],
+    imports: [CommonModule, HttpClientModule, SharedModule, FormsModule, ReactiveFormsModule],
 })
 export class UsersModule {}

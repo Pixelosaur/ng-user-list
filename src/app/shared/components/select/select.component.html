@@ -1,0 +1,13 @@
+<ng-select
+    [searchable]="searchable"
+    [clearable]="clearable"
+    [items]="options"
+    bindLabel="name"
+    bindValue="name"
+    [placeholder]="placeholder"
+    (change)="onChange($event)"
+>
+    <ng-template ng-option-tmp let-item="item" let-index="index">
+        <span class="rounded-3 d-inline-block" [className]="item?.name">{{ item?.name }}</span>
+    </ng-template>
+</ng-select>
