@@ -1,5 +1,6 @@
 // Core
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 // Services
 import { UsersService } from './users.service';
 // Theme
@@ -10,13 +11,12 @@ import { ApiResponse } from './interfaces/api-response.interface';
 import { Alert } from '../shared/components/alert/alert.interface';
 import { Theme } from '../shared/interfaces/theme.interface';
 import { SelectOption } from '../shared/interfaces/select-option.interface';
-
 @Component({
     selector: 'app-users',
     templateUrl: './users.component.html',
     styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
     // Full list of users
     users: User[] = [];
     // Displayed user cards
@@ -35,6 +35,8 @@ export class UsersComponent implements OnInit {
     // Theme
     currentTheme!: Theme;
     themeOptions: SelectOption[] = [];
+
+    subscription!: Subscription;
 
     constructor(private usersService: UsersService) {}
 
@@ -59,7 +61,7 @@ export class UsersComponent implements OnInit {
     }
 
     getRandomUsers(): void {
-        this.usersService.getRandomUsers().subscribe(
+        this.subscription = this.usersService.getRandomUsers().subscribe(
             (data: ApiResponse) => {
                 this.isContentLoading = true;
 
@@ -106,5 +108,9 @@ export class UsersComponent implements OnInit {
 
     setTheme(theme: SelectOption) {
         this.currentTheme = THEMES[theme.name];
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 }
