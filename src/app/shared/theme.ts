@@ -11,7 +11,7 @@ export const THEMES: AppThemes = {
         'color-accent': '#FADB5F',
         'color-gradient': 'linear-gradient(62deg, #FC656C 0%, #FADB5F 100%)',
     },
-    'yellow-purple': {
+    'yellow-aqua': {
         'color-main': '#FADB5F',
         'color-accent': '#60CC96',
         'color-gradient': 'linear-gradient(62deg, #FADB5F 0%, #60CC96 100%)',
