@@ -8,5 +8,8 @@ import { Alert } from './alert.interface';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlertComponent {
-    @Input() alert!: Alert;
+    @Input() alert: Alert = {
+        type: 'Error',
+        message: '',
+    };
 }
