@@ -3,13 +3,60 @@
 
 $select__disabled-text--color: #{lighten($base-dark-color, 40)};
 
+$select-option-purple-background-color: $base-purple-color;
+$select-option-purple-rose-gradient-gradient: $base-purple-rose-gradient;
+
+$select-option-rose-background-color: $base-rose-color;
+$select-option-rose-yellow-gradient-gradient: $base-rose-yellow-gradient;
+
+$select-option-yellow-background-color: $base-yellow-color;
+$select-option-yellow-aqua-gradient-gradient: $base-yellow-aquamarine-gradient;
+
+$select-option-aqua-background-color: $base-aquamarine-color;
+$select-option-aqua-blue-gradient-gradient: $base-aquamarine-bright-blue-gradient;
+
+$select-option-blue-background-color: $base-bright-blue-color;
+$select-option-blue-purple-gradient-gradient: $base-bright-blue-purple-gradient;
+
+$select-option-yellow-blue-gradient-gradient: $base-yellow-bright-blue-gradient;
+
 * {
-  @include transition-all;
+    @include transition-all;
 }
 
 .ng-select {
     width: 20rem;
     margin-bottom: 5rem;
+
+    .purple-rose {
+        background-color: $select-option-purple-background-color;
+        background-image: $select-option-purple-rose-gradient-gradient;
+    }
+
+    .rose-yellow {
+        background-color: $select-option-rose-background-color;
+        background-image: $select-option-rose-yellow-gradient-gradient;
+    }
+
+    .yellow-aqua {
+        background-color: $select-option-yellow-background-color;
+        background-image: $select-option-yellow-aqua-gradient-gradient;
+    }
+
+    .aqua-blue {
+        background-color: $select-option-aqua-background-color;
+        background-image: $select-option-aqua-blue-gradient-gradient;
+    }
+
+    .blue-purple {
+        background-color: $select-option-blue-background-color;
+        background-image: $select-option-blue-purple-gradient-gradient;
+    }
+
+    .yellow-blue {
+        background-color: $select-option-yellow-background-color;
+        background-image: $select-option-yellow-blue-gradient-gradient;
+    }
 
     .ng-select-container {
         border-radius: 0.3rem;
@@ -32,6 +79,21 @@ $select__disabled-text--color: #{lighten($base-dark-color, 40)};
 
             .ng-placeholder {
                 color: $select__disabled-text--color;
+            }
+
+            .ng-value {
+                width: 100%;
+                text-align: initial;
+                display: flex;
+                align-items: center;
+
+                span {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    display: inline-block;
+                    border-radius: 0.3rem;
+                    margin-right: 0.5rem;
+                }
             }
         }
 
@@ -110,12 +172,15 @@ $select__disabled-text--color: #{lighten($base-dark-color, 40)};
 
                 .ng-option {
                     padding: 0;
-                    width: 2rem;
-                    height: 2rem;
                     @include transition-all;
 
                     &:hover {
                         opacity: 0.7;
+                    }
+
+                    span {
+                        width: 2rem;
+                        height: 2rem;
                     }
 
                     &.ng-option-marked {

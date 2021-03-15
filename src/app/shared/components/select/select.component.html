@@ -7,7 +7,11 @@
     [placeholder]="placeholder"
     (change)="onChange($event)"
 >
+    <ng-template ng-label-tmp let-item="item">
+        <span class="rounded-3 d-inline-block" [className]="item?.name"></span>
+        <span>{{ item?.name }}</span>
+    </ng-template>
     <ng-template ng-option-tmp let-item="item" let-index="index">
-        <span class="rounded-3 d-inline-block" [className]="item?.name">{{ item?.name }}</span>
+        <span class="rounded-3 d-inline-block" [className]="item?.name"></span>
     </ng-template>
 </ng-select>
