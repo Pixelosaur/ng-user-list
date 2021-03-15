@@ -1,6 +1,6 @@
 @import '../../../styles/utils/colors';
 
-$blob-fill-color: $base-light-gray-color;
+$blob-fill-color: #{lighten($base-gray-color, 4)};
 
 .blob-container {
     fill: var(--fill, $blob-fill-color);

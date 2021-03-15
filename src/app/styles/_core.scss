@@ -10,7 +10,7 @@ body {
     font-size: 1rem;
     font-family: $body-font;
     color: $body__text-color;
-    background-color: white;
+    background-color: $body-background-color;
 
     h1,
     h2,
