@@ -9,6 +9,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { PagerComponent } from './components/pager/pager.component';
 import { ThemeDirective } from './directives/theme.directive';
 import { SelectComponent } from './components/select/select.component';
+import { BlobComponent } from './components/blob/blob.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { SelectComponent } from './components/select/select.component';
         PagerComponent,
         ThemeDirective,
         SelectComponent,
+        BlobComponent,
     ],
     imports: [CommonModule, NgSelectModule],
     exports: [
@@ -28,6 +30,7 @@ import { SelectComponent } from './components/select/select.component';
         PagerComponent,
         ThemeDirective,
         SelectComponent,
+        BlobComponent,
     ],
 })
 export class SharedModule {}

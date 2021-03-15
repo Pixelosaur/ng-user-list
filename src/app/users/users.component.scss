@@ -16,6 +16,7 @@
 
 .users-container {
     min-height: 100vh;
+    position: relative;
 
     .users {
         .user-item {
@@ -44,6 +45,21 @@
                     padding: 0;
                 }
             }
+        }
+    }
+
+    .blob {
+        display: none;
+        @media screen and (min-width: 1024px) {
+            display: block;
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100%;
+            height: 60%;
+            z-index: -1;
         }
     }
 }
