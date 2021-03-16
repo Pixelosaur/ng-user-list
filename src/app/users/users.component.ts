@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     isPrevButtonDisabled: boolean = true;
     // Alert
     alert!: Alert;
-    isAlertShowing!: boolean;
+    isAlertShowing: boolean = false;
     // Theme
     currentTheme!: Theme;
     themeOptions: SelectOption[] = [];
@@ -76,6 +76,9 @@ export class UsersComponent implements OnInit, OnDestroy {
                     message: error,
                     type: 'Error',
                 };
+                this.isAlertShowing = true;
+                // reset the page loader
+                this.isContentLoading = false;
             },
         );
     }
