@@ -1,9 +1,14 @@
+// Testing
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+// RxJS
+import { of, throwError } from 'rxjs';
+// Components -  Services
 import { UsersComponent } from './users.component';
 import { UsersService } from './users.service';
+// Interfaces
 import { ApiResponse } from './interfaces/api-response.interface';
-import { of, throwError } from 'rxjs';
 import { User } from './interfaces/user.interface';
 import { Alert } from '../shared/components/alert/alert.interface';
 
@@ -16,7 +21,7 @@ describe('UsersComponent', () => {
         usersServiceSpy = jasmine.createSpyObj('UsersService', ['getRandomUsers']);
 
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
+            imports: [HttpClientTestingModule, RouterTestingModule],
             declarations: [UsersComponent],
             providers: [
                 {
