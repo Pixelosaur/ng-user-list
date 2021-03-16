@@ -1,5 +1,6 @@
 // Core
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 // Services
 import { UsersService } from './users.service';
@@ -11,6 +12,7 @@ import { ApiResponse } from './interfaces/api-response.interface';
 import { Alert } from '../shared/components/alert/alert.interface';
 import { Theme } from '../shared/interfaces/theme.interface';
 import { SelectOption } from '../shared/interfaces/select-option.interface';
+
 @Component({
     selector: 'app-users',
     templateUrl: './users.component.html',
@@ -38,7 +40,11 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    constructor(private usersService: UsersService) {}
+    constructor(
+        private usersService: UsersService,
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
+    ) {}
 
     ngOnInit(): void {
         // hide alert
@@ -57,7 +63,12 @@ export class UsersComponent implements OnInit, OnDestroy {
                 name: key,
             };
         });
-        this.currentTheme = THEMES[themeNames[0]];
+
+        let defaultTheme: string;
+        this.activatedRoute.queryParams.subscribe((params) => {
+            defaultTheme = params.theme;
+            this.currentTheme = defaultTheme ? THEMES[defaultTheme] : THEMES[themeNames[0]];
+        });
     }
 
     getRandomUsers(): void {
@@ -111,6 +122,15 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     setTheme(theme: SelectOption) {
         this.currentTheme = THEMES[theme.name];
+        this.activatedRoute.snapshot.queryParams = {
+            theme: this.currentTheme,
+        };
+
+        const queryParams: Params = { theme: theme.name };
+        this.router.navigate([], {
+            relativeTo: this.activatedRoute,
+            queryParams: queryParams,
+        });
     }
 
     ngOnDestroy(): void {
