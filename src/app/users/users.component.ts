@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     currentDisplayedCardsIndex: number = 0;
     numberOfDisplayedCards: number = 3;
 
-    pageTitle: string = 'My Clerks';
+    pageTitle: string = 'My Users';
 
     isContentLoading: boolean = true;
     isNextButtonDisabled: boolean = false;
